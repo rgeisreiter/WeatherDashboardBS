@@ -8,10 +8,21 @@ var citySearch = $("#searchCity");
 //grabbing value from input box
 $("#searchButton").on("click", function () {
   var city = citySearch.val();
+  console.log(city);
   currentWeather(city);
 });
 
-function currentWeather(city) {}
+function currentWeather(city) {
+  $.ajax({
+    type: "GET",
+    url: currentUrl + city + apiKey,
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+    },
+  });
+}
+
 //var + city + api key
 
 // currentDay (city) {data.main.temp}
